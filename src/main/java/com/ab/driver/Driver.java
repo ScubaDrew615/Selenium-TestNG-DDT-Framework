@@ -9,6 +9,7 @@ import java.util.Objects;
 public final class Driver {
 
     private Driver() {
+
     }
 
     public static void initDriver() {
