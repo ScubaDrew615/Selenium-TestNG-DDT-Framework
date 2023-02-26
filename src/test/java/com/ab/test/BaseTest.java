@@ -8,7 +8,6 @@ public class BaseTest {
     protected BaseTest() {
     }
 
-
     @BeforeMethod
     protected void setup() {
         Driver.initDriver();
@@ -20,6 +19,5 @@ public class BaseTest {
         Driver.quitDriver();
 
     }
-
 
 }
