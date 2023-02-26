@@ -1,5 +1,7 @@
 package com.ab.utilities;
 
+import com.ab.constants.FrameworkConstants;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
@@ -17,7 +19,7 @@ public final class PropertiesReader {
     static {
         FileInputStream inputStream = null;
         try {
-            inputStream = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config/FrameworkConfigs.properties");
+            inputStream = new FileInputStream(FrameworkConstants.getConfiguration());
             property.load(inputStream);
             for (Map.Entry<Object, Object> entry : property.entrySet()) {
                 CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
