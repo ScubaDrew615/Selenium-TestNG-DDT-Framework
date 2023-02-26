@@ -7,9 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.Objects;
 
 public final class Driver {
-
     private Driver() {
-
     }
 
     public static void initDriver() {
