@@ -22,7 +22,7 @@ public final class PropertiesReader {
             inputStream = new FileInputStream(FrameworkConstants.getConfiguration());
             property.load(inputStream);
             for (Map.Entry<Object, Object> entry : property.entrySet()) {
-                CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+                CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()).trim());
             }
 
         } catch (IOException e) {
@@ -41,7 +41,7 @@ public final class PropertiesReader {
         if (Objects.isNull(property.getProperty(key)) || Objects.isNull(key)) {
             throw new Exception("Property name '" + key + "' is not found. Please check FrameworkConfigs.properties.");
         }
-        String value = property.getProperty(key);
+        String value = property.getProperty(key).trim();
         return value;
     }
 
