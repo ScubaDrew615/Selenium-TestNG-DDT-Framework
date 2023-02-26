@@ -12,9 +12,7 @@ public final class HomepageTest extends BaseTest {
 
     @Test
     public void test3() throws Exception {
-
         DriverManager.getDriver().get(PropertiesReader.getHashMapValues("url"));
         DriverManager.getDriver().findElement(By.name("q")).sendKeys("Andrew Bakheet", Keys.ENTER);
-
     }
 }

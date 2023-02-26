@@ -8,7 +8,7 @@ public final class LoginPageTest extends BaseTest {
 
     private LoginPageTest() {
     }
-
+//
 //    @Test
 //    public void test1() throws Exception {
 //        DriverManager.getDriver().get(PropertiesReader.getHashTableValues("url"));
