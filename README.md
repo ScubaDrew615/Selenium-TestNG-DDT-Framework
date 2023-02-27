@@ -1,6 +1,9 @@
-# SeleniumFramework2.0
+# SeleniumFramework
 A robust automation framework using Selenium.
 
+# <h3> UNDER CONSTRUCTION  </h3>
+
+![cone](Logos/Cone.png)
 
 
 
@@ -14,4 +17,9 @@ A robust automation framework using Selenium.
 
 
 
-@ScubaDrew615
+
+
+
+
+
+<h6><em>@ScubaDrew615</em></h6>
