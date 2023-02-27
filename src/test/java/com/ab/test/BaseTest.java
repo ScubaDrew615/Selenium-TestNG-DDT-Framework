@@ -9,7 +9,7 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    protected void setup() {
+    protected void setup() throws Exception {
         Driver.initDriver();
 
     }
