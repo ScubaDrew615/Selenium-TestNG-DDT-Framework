@@ -3,7 +3,7 @@ A robust automation framework using Selenium.
 
 # <h3> UNDER CONSTRUCTION  </h3>
 
-![cone](Logos/Cone.png)
+<img src="Logos/Cone.png" alt="drawing" width="305"/>
 
 
 
