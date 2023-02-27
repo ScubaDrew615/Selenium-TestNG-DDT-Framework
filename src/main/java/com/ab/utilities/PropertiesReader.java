@@ -1,9 +1,9 @@
 package com.ab.utilities;
 
 import com.ab.constants.FrameworkConstants;
+import com.ab.enums.ConfigProperties;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -25,24 +25,23 @@ public final class PropertiesReader {
                 CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()).trim());
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static String getHashMapValues(String key) throws Exception {
-        if (Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key))) {
-            throw new Exception("Property name '" + key + "' is not found. Please check FrameworkConfigs.properties.");
+    public static String getHashMapValues(ConfigProperties key) throws Exception {
+        if (Objects.isNull(key) || Objects.isNull(key)) {
+            throw new Exception("Property name '" + key.name() + "' is not found. Please check FrameworkConfigs.properties.");
         }
-        return CONFIGMAP.get(key);
+        return CONFIGMAP.get(key.name().toLowerCase());
     }
 
-    public static String getHashTableValues(String key) throws Exception {
-        if (Objects.isNull(property.getProperty(key)) || Objects.isNull(key)) {
-            throw new Exception("Property name '" + key + "' is not found. Please check FrameworkConfigs.properties.");
+    public static String getHashTableValues(ConfigProperties key) throws Exception {
+        if (Objects.isNull(key) || Objects.isNull(key)) {
+            throw new Exception("Property name '" + key.name() + "' is not found. Please check FrameworkConfigs.properties.");
         }
-        String value = property.getProperty(key).trim();
-        return value;
+        return property.getProperty(key.name().toLowerCase());
     }
 
 }
