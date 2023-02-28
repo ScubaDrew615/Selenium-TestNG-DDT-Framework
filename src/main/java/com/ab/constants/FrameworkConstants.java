@@ -13,7 +13,7 @@ public final class FrameworkConstants {
     private static final String CONFIGFILEPATH = System.getProperty("user.dir") + "/src/test/resources/config/FrameworkConfigs.properties";
     private static final String EXTENTREPORTSFOLDERPATH = System.getProperty("user.dir") + "/extent-test-output/";
     private static String extentreportsfilepath = "";
-    private static final int EXPLICITWAIT = 10;
+    private static final int EXPLICITWAIT = 1;
 
 
     public static String getConfiguration() {
