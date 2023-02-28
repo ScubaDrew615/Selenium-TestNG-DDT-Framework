@@ -2,5 +2,9 @@ package com.ab.enums;
 
 public enum ConfigProperties {
     URL,
+    OVERRIDEREPORTS,
+    PASSEDSTEPSSCREENSHOTS,
+    FAILEDSTEPSSCREENSHOTS,
+    SKIPPEDSTEPSSCREENSHOT,
     BROWSER;
 }
