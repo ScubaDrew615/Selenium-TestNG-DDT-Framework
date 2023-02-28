@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
-public final class PropertiesReader {
-    private PropertiesReader() {
+public final class PropertiesUtil {
+    private PropertiesUtil() {
     }
 
     private static Properties property = new Properties();

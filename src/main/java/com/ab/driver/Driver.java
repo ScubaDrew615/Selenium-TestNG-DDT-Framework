@@ -1,7 +1,7 @@
 package com.ab.driver;
 
 import com.ab.enums.ConfigProperties;
-import com.ab.utilities.PropertiesReader;
+import com.ab.utilities.PropertiesUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,7 +15,7 @@ public final class Driver {
         if (Objects.isNull(DriverManager.getDriver())) {
             WebDriverManager.chromedriver().setup();
             DriverManager.setDriver(new ChromeDriver());
-            DriverManager.getDriver().get(PropertiesReader.getHashTableValues(ConfigProperties.URL));
+            DriverManager.getDriver().get(PropertiesUtil.getHashTableValues(ConfigProperties.URL));
         }
     }
 
