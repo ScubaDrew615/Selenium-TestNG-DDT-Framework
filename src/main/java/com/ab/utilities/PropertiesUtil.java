@@ -31,15 +31,15 @@ public final class PropertiesUtil {
     }
 
     public static String getHashMapValues(ConfigProperties key) throws Exception {
-        if (Objects.isNull(key) || Objects.isNull(key)) {
-            throw new Exception("Property name '" + key.name() + "' is not found. Please check FrameworkConfigs.properties.");
+        if (Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key.name().toLowerCase()))) {
+            throw new Exception("Property name '" + Objects.requireNonNull(key).name() + "' is not found. Please check FrameworkConfigs.properties.");
         }
         return CONFIGMAP.get(key.name().toLowerCase());
     }
 
     public static String getHashTableValues(ConfigProperties key) throws Exception {
-        if (Objects.isNull(key) || Objects.isNull(key)) {
-            throw new Exception("Property name '" + key.name() + "' is not found. Please check FrameworkConfigs.properties.");
+        if (Objects.isNull(key) || Objects.isNull(property.getProperty(key.name().toLowerCase()))) {
+            throw new Exception("Property name '" + Objects.requireNonNull(key).name() + "' is not found. Please check FrameworkConfigs.properties.");
         }
         return property.getProperty(key.name().toLowerCase());
     }
