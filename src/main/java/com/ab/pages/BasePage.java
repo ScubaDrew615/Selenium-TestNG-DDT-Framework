@@ -18,7 +18,7 @@ public class BasePage {
     protected void sendKeys(By locator, String value, WaitStrategy strategy, String elementName) throws Exception {
         ExplicitWaitFactory.explicitlyWait(WaitStrategy.PRESENCE, locator)
                 .sendKeys(value);
-        ExtentLogger.pass("(" + value + ") is entered successfully into \"" + elementName + "\"",true);
+        ExtentLogger.pass("(" + value + ") is entered successfully into \"" + elementName + "\"");
 
 
     }

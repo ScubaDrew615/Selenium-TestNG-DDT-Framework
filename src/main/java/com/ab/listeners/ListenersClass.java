@@ -37,13 +37,21 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
-        ExtentLogger.pass(StringsUtil.addSpacesAndCapitalize(methodName));
+        try {
+            ExtentLogger.pass(StringsUtil.addSpacesAndCapitalize(methodName),true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
-        ExtentLogger.fail(StringsUtil.addSpacesAndCapitalize(methodName));
+        try {
+            ExtentLogger.fail(StringsUtil.addSpacesAndCapitalize(methodName),true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
