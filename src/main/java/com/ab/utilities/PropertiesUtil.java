@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
+import static com.ab.utilities.StringsUtil.getCleanEnumName;
+
 public final class PropertiesUtil {
     private PropertiesUtil() {
     }
@@ -30,18 +32,12 @@ public final class PropertiesUtil {
         }
     }
 
-    public static String getHashMapValues(ConfigProperties key) throws Exception {
-        if (Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key.name().toLowerCase()))) {
+    public static String getValues(ConfigProperties key) throws Exception {
+        if (Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(getCleanEnumName(key)))) {
             throw new Exception("Property name '" + Objects.requireNonNull(key).name() + "' is not found. Please check FrameworkConfigs.properties.");
         }
-        return CONFIGMAP.get(key.name().toLowerCase());
+        return CONFIGMAP.get(getCleanEnumName(key));
     }
 
-    public static String getHashTableValues(ConfigProperties key) throws Exception {
-        if (Objects.isNull(key) || Objects.isNull(property.getProperty(key.name().toLowerCase()))) {
-            throw new Exception("Property name '" + Objects.requireNonNull(key).name() + "' is not found. Please check FrameworkConfigs.properties.");
-        }
-        return property.getProperty(key.name().toLowerCase());
-    }
 
 }
