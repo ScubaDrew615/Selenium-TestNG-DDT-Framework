@@ -33,7 +33,7 @@ public final class FrameworkConstants {
     }
 
     private static String createReportPath() throws Exception {
-        if (PropertiesUtil.getHashTableValues(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("no")) {
+        if (PropertiesUtil.getValues(ConfigProperties.OVERRIDE_REPORTS).equalsIgnoreCase("no")) {
             return EXTENTREPORTSFOLDERPATH + humanTime() + "/index.html";
         } else {
             return EXTENTREPORTSFOLDERPATH + "/index.html";

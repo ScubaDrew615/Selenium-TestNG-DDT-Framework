@@ -1,33 +1,32 @@
 package com.ab.reports;
 
-import com.ab.driver.DriverManager;
 import com.ab.enums.ConfigProperties;
 import com.ab.utilities.PropertiesUtil;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
-public final class ExtentLogger {
+import static com.ab.utilities.ScreenShotsUtil.getBase64Image;
 
-    private ExtentLogger() {
+public final class ExtentRLogger {
+
+    private ExtentRLogger() {
     }
 
     public static void pass(String message) {
-        ExtentManager.getExtentTest().pass(message);
+        ExtentReportManager.getExtentTest().pass(message);
     }
 
     public static void fail(String message) {
-        ExtentManager.getExtentTest().fail(message);
+        ExtentReportManager.getExtentTest().fail(message);
     }
 
     public static void skip(String message) {
-        ExtentManager.getExtentTest().skip(message);
+        ExtentReportManager.getExtentTest().skip(message);
     }
 
     public static void pass(String message, boolean needScreenShot) throws Exception {
-        if (PropertiesUtil.getHashTableValues(ConfigProperties.PASSEDSTEPSSCREENSHOTS).equalsIgnoreCase("yes")
+        if (PropertiesUtil.getValues(ConfigProperties.PASSED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
-            ExtentManager.getExtentTest().pass(message,
+            ExtentReportManager.getExtentTest().pass(message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
         } else {
             pass(message);
@@ -35,9 +34,9 @@ public final class ExtentLogger {
     }
 
     public static void fail(String message, boolean needScreenShot) throws Exception {
-        if (PropertiesUtil.getHashTableValues(ConfigProperties.FAILEDSTEPSSCREENSHOTS).equalsIgnoreCase("yes")
+        if (PropertiesUtil.getValues(ConfigProperties.FAILED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
-            ExtentManager.getExtentTest().fail(message,
+            ExtentReportManager.getExtentTest().fail(message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
         } else {
             fail(message);
@@ -45,17 +44,15 @@ public final class ExtentLogger {
     }
 
     public static void skip(String message, boolean needScreenShot) throws Exception {
-        if (PropertiesUtil.getHashTableValues(ConfigProperties.SKIPPEDSTEPSSCREENSHOT).equalsIgnoreCase("yes")
+        if (PropertiesUtil.getValues(ConfigProperties.SKIPPED_STEPS_SCREENSHOT).equalsIgnoreCase("yes")
                 && needScreenShot) {
-            ExtentManager.getExtentTest().skip(message,
+            ExtentReportManager.getExtentTest().skip(message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
         } else {
             skip(message);
         }
     }
 
-    public static String getBase64Image() {
-        return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
-    }
+
 
 }

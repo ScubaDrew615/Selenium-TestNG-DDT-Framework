@@ -1,6 +1,6 @@
 package com.ab.listeners;
 
-import com.ab.reports.ExtentLogger;
+import com.ab.reports.ExtentRLogger;
 import com.ab.reports.ExtentReport;
 import com.ab.utilities.StringsUtil;
 import org.testng.ISuite;
@@ -38,7 +38,7 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     public void onTestSuccess(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
         try {
-            ExtentLogger.pass(StringsUtil.addSpacesAndCapitalize(methodName),true);
+            ExtentRLogger.pass(StringsUtil.addSpacesAndCapitalize(methodName),true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,7 +48,8 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     public void onTestFailure(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
         try {
-            ExtentLogger.fail(StringsUtil.addSpacesAndCapitalize(methodName),true);
+            ExtentRLogger.fail(StringsUtil.addSpacesAndCapitalize(methodName),true);
+            ExtentRLogger.fail(result.getThrowable().getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,7 +58,7 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
-        ExtentLogger.skip(StringsUtil.addSpacesAndCapitalize(methodName));
+        ExtentRLogger.skip(StringsUtil.addSpacesAndCapitalize(methodName));
     }
 
 }

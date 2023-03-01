@@ -1,7 +1,7 @@
 package com.ab.pages;
 
 import com.ab.enums.WaitStrategy;
-import com.ab.reports.ExtentLogger;
+import com.ab.reports.ExtentRLogger;
 import org.openqa.selenium.By;
 
 public class OrangeHRMAuthPage extends BasePage {
@@ -25,7 +25,7 @@ public class OrangeHRMAuthPage extends BasePage {
         return new OrangeHRMHomePage();
     }
     public String getTitle(){
-        ExtentLogger.pass("Title received");
+        ExtentRLogger.pass("Title received");
         return getPageTitle();
 
     }

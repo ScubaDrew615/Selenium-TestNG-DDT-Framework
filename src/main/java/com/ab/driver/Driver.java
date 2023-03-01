@@ -15,7 +15,7 @@ public final class Driver {
         if (Objects.isNull(DriverManager.getDriver())) {
             WebDriverManager.chromedriver().setup();
             DriverManager.setDriver(new ChromeDriver());
-            DriverManager.getDriver().get(PropertiesUtil.getHashTableValues(ConfigProperties.URL));
+            DriverManager.getDriver().get(PropertiesUtil.getValues(ConfigProperties.URL));
         }
     }
 
