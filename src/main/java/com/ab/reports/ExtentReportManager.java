@@ -3,8 +3,8 @@ package com.ab.reports;
 import com.aventstack.extentreports.ExtentTest;
 
 
-public class ExtentManager {
-    private ExtentManager() {
+public class ExtentReportManager {
+    private ExtentReportManager() {
     }
 
     private static ThreadLocal<ExtentTest> extentTestTL = new ThreadLocal<>();
