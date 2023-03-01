@@ -11,5 +11,11 @@ public class OrangeHRMTest extends BaseTest{
                 .clickDropdown().clickLogout()
                 .getTitle();
     }
+    @Test
+    public void failedLoginLogoutTest() throws Exception {
+        new OrangeHRMAuthPage().sendUsername("Admin").sendPassword("admin13").clickLogin()
+                .clickDropdown().clickLogout()
+                .getTitle();
+    }
 
 }
