@@ -1,21 +1,35 @@
 package com.ab.constants;
 
 import com.ab.enums.ConfigProperties;
-import com.ab.enums.DateFormats;
-import com.ab.utilities.DateUtil;
 import com.ab.utilities.PropertiesUtil;
+
+import static com.ab.utilities.DateUtil.humanTime;
 
 public final class FrameworkConstants {
 
     private FrameworkConstants() {
     }
 
-    private static final String CONFIGFILEPATH = System.getProperty("user.dir") + "/src/test/resources/config/FrameworkConfigs.properties";
+    private static final String RESOURCESPATH = System.getProperty("user.dir") + "/src/test/resources";
+    private static final String CONFIGFILEPATH = RESOURCESPATH + "/config/FrameworkConfigs.properties";
     private static final String EXTENTREPORTSFOLDERPATH = System.getProperty("user.dir") + "/extent-test-output/";
     private static String extentreportsfilepath = "";
+    private static final String EXCELPATH = RESOURCESPATH + "/excel/testdata.xlsx";
+    private static final String EXCELDATASHEET = "DATA";
+    private static final String EXCELRUNMANAGER = "RUNMANAGER";
     private static final int EXPLICITWAIT = 1;
 
+    public static String getExcelDataSheet(){
+        return EXCELDATASHEET;
+    }
+    public static String getExcelRunManager(){
+        return EXCELRUNMANAGER;
+    }
 
+    public static String getExcelPath() {
+        return EXCELPATH;
+
+    }
     public static String getConfiguration() {
         return CONFIGFILEPATH;
 
@@ -33,13 +47,10 @@ public final class FrameworkConstants {
     }
 
     private static String createReportPath() throws Exception {
-        if (PropertiesUtil.getValues(ConfigProperties.OVERRIDE_REPORTS).equalsIgnoreCase("no")) {
+        if (PropertiesUtil.getValues(ConfigProperties.OVER_RIDE_REPORTS).equalsIgnoreCase("no")) {
             return EXTENTREPORTSFOLDERPATH + humanTime() + "/index.html";
         } else {
             return EXTENTREPORTSFOLDERPATH + "/index.html";
         }
-    }
-    private static String humanTime(){
-        return DateUtil.convertUnixTime(System.currentTimeMillis(), DateFormats.LONG12H);
     }
 }
