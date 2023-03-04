@@ -6,9 +6,9 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 
 import static com.ab.utilities.ScreenShotsUtil.getBase64Image;
 
-public final class ExtentRLogger {
+public final class ExtentReportLogger {
 
-    private ExtentRLogger() {
+    private ExtentReportLogger() {
     }
 
     public static void pass(String message) {
@@ -44,7 +44,7 @@ public final class ExtentRLogger {
     }
 
     public static void skip(String message, boolean needScreenShot) throws Exception {
-        if (PropertiesUtil.getValues(ConfigProperties.SKIPPED_STEPS_SCREENSHOT).equalsIgnoreCase("yes")
+        if (PropertiesUtil.getValues(ConfigProperties.SKIPPED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
             ExtentReportManager.getExtentTest().skip(message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
