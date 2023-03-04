@@ -4,7 +4,7 @@
     <listeners>
         <listener class-name="com.ab.listeners.ListenersClass"></listener>
     </listeners>
-    <test thread-count="1" name="Test" parallel="methods">
+    <test thread-count="2" name="Test" parallel="methods">
         <classes>
             <class name="com.ab.test.OrangeHRMTest"/>
         </classes>
