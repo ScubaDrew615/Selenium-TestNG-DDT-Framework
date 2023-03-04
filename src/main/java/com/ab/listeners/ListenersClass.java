@@ -1,6 +1,6 @@
 package com.ab.listeners;
 
-import com.ab.reports.ExtentRLogger;
+import com.ab.reports.ExtentReportLogger;
 import com.ab.reports.ExtentReport;
 import com.ab.utilities.StringsUtil;
 import org.testng.ISuite;
@@ -31,14 +31,14 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestStart(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
-        ExtentReport.createTest(StringsUtil.addSpacesAndCapitalize(methodName));
+        ExtentReport.createTest(result.getMethod().getDescription());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
         try {
-            ExtentRLogger.pass(StringsUtil.addSpacesAndCapitalize(methodName),true);
+            ExtentReportLogger.pass(StringsUtil.addSpacesAndCapitalize(methodName),true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,8 +48,8 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     public void onTestFailure(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
         try {
-            ExtentRLogger.fail(StringsUtil.addSpacesAndCapitalize(methodName),true);
-            ExtentRLogger.fail(result.getThrowable().getMessage());
+            ExtentReportLogger.fail(StringsUtil.addSpacesAndCapitalize(methodName),true);
+            ExtentReportLogger.fail(result.getThrowable().getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -58,7 +58,11 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
-        ExtentRLogger.skip(StringsUtil.addSpacesAndCapitalize(methodName));
+        try {
+            ExtentReportLogger.skip(StringsUtil.addSpacesAndCapitalize(methodName), true);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
