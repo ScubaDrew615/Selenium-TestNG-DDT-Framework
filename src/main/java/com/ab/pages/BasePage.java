@@ -3,22 +3,22 @@ package com.ab.pages;
 import com.ab.driver.DriverManager;
 import com.ab.enums.WaitStrategy;
 import com.ab.factories.ExplicitWaitFactory;
-import com.ab.reports.ExtentRLogger;
+import com.ab.reports.ExtentReportLogger;
 import org.openqa.selenium.By;
 
 public class BasePage {
 
-    protected void click(By locator, WaitStrategy strategy, String elementName) {
+    protected void click(By locator, String elementName) {
         ExplicitWaitFactory.explicitlyWait(WaitStrategy.CLICKABLE, locator).click();
-        ExtentRLogger.pass(elementName + " is clicked");
+        ExtentReportLogger.pass(elementName + " is clicked");
 
 
     }
 
-    protected void sendKeys(By locator, String value, WaitStrategy strategy, String elementName) throws Exception {
+    protected void sendKeys(By locator, String value, String elementName)  {
         ExplicitWaitFactory.explicitlyWait(WaitStrategy.PRESENCE, locator)
                 .sendKeys(value);
-        ExtentRLogger.pass("(" + value + ") is entered successfully into \"" + elementName + "\"");
+        ExtentReportLogger.pass("(" + value + ") is entered successfully into \"" + elementName + "\"");
 
 
     }
