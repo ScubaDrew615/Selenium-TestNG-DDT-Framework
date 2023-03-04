@@ -2,7 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test Suite">
     <listeners>
-        <listener class-name="com.ab.listeners.ListenersClass"></listener>
+        <listener class-name="com.ab.listeners.ListenersClass"/>
+        <listener class-name="com.ab.listeners.AnnotationTransformer"/>
+        <listener class-name="com.ab.listeners.MethodInterceptor"/>
+
     </listeners>
     <test thread-count="2" name="Test" parallel="methods">
         <classes>
