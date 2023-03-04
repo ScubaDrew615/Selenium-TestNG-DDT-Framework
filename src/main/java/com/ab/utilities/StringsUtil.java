@@ -1,6 +1,8 @@
 package com.ab.utilities;
 
 
+import com.ab.enums.ConfigProperties;
+
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -14,9 +16,8 @@ public final class StringsUtil {
                 .collect(Collectors.joining(" "));
     }
 
-    public static String getCleanEnumName(Enum<?> enumValue) {
+    public static String getCleanEnumName(ConfigProperties enumValue) {
         String enumName = enumValue.name();
         return enumName.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
     }
-
 }
