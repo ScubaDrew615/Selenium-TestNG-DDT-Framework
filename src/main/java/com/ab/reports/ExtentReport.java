@@ -30,6 +30,7 @@ public final class ExtentReport {
         if (Objects.nonNull(reports)) {
             reports.flush();
         }
+        ExtentReportManager.unload();
         Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportsFilePath()).toURI());
     }
 
