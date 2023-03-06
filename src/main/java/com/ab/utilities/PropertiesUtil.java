@@ -4,6 +4,7 @@ import com.ab.constants.FrameworkConstants;
 import com.ab.enums.ConfigProperties;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -13,19 +14,17 @@ public final class PropertiesUtil {
     private PropertiesUtil() {
     }
 
-    private static Properties property = new Properties();
+    private static final Properties property = new Properties();
     private static final Map<ConfigProperties, String> CONFIGMAP = new HashMap<>();
 
     static {
-        FileInputStream inputStream;
-        try {
-            inputStream = new FileInputStream(FrameworkConstants.getConfiguration());
+        try (FileInputStream inputStream = new FileInputStream(FrameworkConstants.getConfiguration())) {
             property.load(inputStream);
             for (ConfigProperties key : ConfigProperties.values()) {
                 CONFIGMAP.put(key, property.getProperty(key.name().toLowerCase()).trim());
             }
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
