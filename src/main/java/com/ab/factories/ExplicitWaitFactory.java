@@ -10,7 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ExplicitWaitFactory {
+public final class ExplicitWaitFactory {
+
+    private ExplicitWaitFactory() {
+    }
+
     public static WebElement explicitlyWait(WaitStrategy strategy, By locator) {
         WebElement element = null;
         if (strategy == WaitStrategy.CLICKABLE) {
