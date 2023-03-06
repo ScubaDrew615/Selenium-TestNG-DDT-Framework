@@ -1,9 +1,8 @@
 package com.ab.constants;
 
 import com.ab.enums.ConfigProperties;
+import com.ab.utilities.DateUtil;
 import com.ab.utilities.PropertiesUtil;
-
-import static com.ab.utilities.DateUtil.humanTime;
 
 public final class FrameworkConstants {
 
@@ -19,10 +18,11 @@ public final class FrameworkConstants {
     private static final String EXCELRUNMANAGER = "RUNMANAGER";
     private static final int EXPLICITWAIT = 1;
 
-    public static String getExcelDataSheet(){
+    public static String getExcelDataSheet() {
         return EXCELDATASHEET;
     }
-    public static String getExcelRunManager(){
+
+    public static String getExcelRunManager() {
         return EXCELRUNMANAGER;
     }
 
@@ -30,6 +30,7 @@ public final class FrameworkConstants {
         return EXCELPATH;
 
     }
+
     public static String getConfiguration() {
         return CONFIGFILEPATH;
 
@@ -48,7 +49,7 @@ public final class FrameworkConstants {
 
     private static String createReportPath() throws Exception {
         if (PropertiesUtil.getValues(ConfigProperties.OVER_RIDE_REPORTS).equalsIgnoreCase("no")) {
-            return EXTENTREPORTSFOLDERPATH + humanTime() + "/index.html";
+            return EXTENTREPORTSFOLDERPATH + DateUtil.humanTime() + "/index.html";
         } else {
             return EXTENTREPORTSFOLDERPATH + "/index.html";
         }
