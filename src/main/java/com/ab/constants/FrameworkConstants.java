@@ -9,49 +9,49 @@ public final class FrameworkConstants {
     private FrameworkConstants() {
     }
 
-    private static final String RESOURCESPATH = System.getProperty("user.dir") + "/src/test/resources";
-    private static final String CONFIGFILEPATH = RESOURCESPATH + "/config/FrameworkConfigs.properties";
-    private static final String EXTENTREPORTSFOLDERPATH = System.getProperty("user.dir") + "/extent-test-output/";
-    private static String extentreportsfilepath = "";
-    private static final String EXCELPATH = RESOURCESPATH + "/excel/testdata.xlsx";
-    private static final String EXCELDATASHEET = "DATA";
-    private static final String EXCELRUNMANAGER = "RUNMANAGER";
-    private static final int EXPLICITWAIT = 1;
+    private static final String RESOURCES_PATH = System.getProperty("user.dir") + "/src/test/resources";
+    private static final String CONFIG_FILE_PATH = RESOURCES_PATH + "/config/FrameworkConfigs.properties";
+    private static final String EXTENT_REPORTS_FOLDER_PATH = System.getProperty("user.dir") + "/extent-test-output/";
+    private static String extentReportsFilePath = "";
+    private static final String EXCEL_PATH = RESOURCES_PATH + "/excel/testdata1.xlsx";
+    private static final String EXCEL_DATA_SHEET = "DATA";
+    private static final String EXCEL_RUN_MANAGER = "RUNMANAGER";
+    private static final int EXPLICIT_WAIT = 1;
 
     public static String getExcelDataSheet() {
-        return EXCELDATASHEET;
+        return EXCEL_DATA_SHEET;
     }
 
     public static String getExcelRunManager() {
-        return EXCELRUNMANAGER;
+        return EXCEL_RUN_MANAGER;
     }
 
     public static String getExcelPath() {
-        return EXCELPATH;
+        return EXCEL_PATH;
 
     }
 
     public static String getConfiguration() {
-        return CONFIGFILEPATH;
+        return CONFIG_FILE_PATH;
 
     }
 
     public static int getExplicitWait() {
-        return EXPLICITWAIT;
+        return EXPLICIT_WAIT;
     }
 
     public static String getExtentReportsFilePath() throws Exception {
-        if (extentreportsfilepath.isEmpty()) {
-            extentreportsfilepath = createReportPath();
+        if (extentReportsFilePath.isEmpty()) {
+            extentReportsFilePath = createReportPath();
         }
-        return extentreportsfilepath;
+        return extentReportsFilePath;
     }
 
     private static String createReportPath() throws Exception {
         if (PropertiesUtil.getPropertyValues(ConfigProperties.OVER_RIDE_REPORTS).equalsIgnoreCase("no")) {
-            return EXTENTREPORTSFOLDERPATH + DateUtil.humanTime() + "/index.html";
+            return EXTENT_REPORTS_FOLDER_PATH + DateUtil.humanTime() + "/index.html";
         } else {
-            return EXTENTREPORTSFOLDERPATH + "/index.html";
+            return EXTENT_REPORTS_FOLDER_PATH + "/index.html";
         }
     }
 }
