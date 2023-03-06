@@ -48,7 +48,7 @@ public final class FrameworkConstants {
     }
 
     private static String createReportPath() throws Exception {
-        if (PropertiesUtil.getPropertieValues(ConfigProperties.OVER_RIDE_REPORTS).equalsIgnoreCase("no")) {
+        if (PropertiesUtil.getPropertyValues(ConfigProperties.OVER_RIDE_REPORTS).equalsIgnoreCase("no")) {
             return EXTENTREPORTSFOLDERPATH + DateUtil.humanTime() + "/index.html";
         } else {
             return EXTENTREPORTSFOLDERPATH + "/index.html";
