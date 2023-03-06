@@ -19,7 +19,7 @@ public class RetryFailedTests implements IRetryAnalyzer {
                 count++;
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return value;
     }
