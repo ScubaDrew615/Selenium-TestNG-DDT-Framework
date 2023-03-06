@@ -11,7 +11,7 @@ public class OrangeHRMTest extends BaseTest {
 
     @FrameworkAnnotation(author = {"Andrew", "Stephen"}, suites = {SuiteType.REGRESSION, SuiteType.MINI_REGRESSION})
     @Test
-    public void loginLogoutTest(Map<String, String> data) throws Exception {
+    public void loginLogoutTest(Map<String, String> data)  {
         new OrangeHRMAuthPage()
                 .sendUsername(data.get("username"))
                 .sendPassword(data.get("password"))
@@ -23,7 +23,7 @@ public class OrangeHRMTest extends BaseTest {
 
     @FrameworkAnnotation(author = {"Andrew", "Stephen"}, suites = {SuiteType.REGRESSION, SuiteType.SMOKE})
     @Test
-    public void failedLoginLogoutTest(Map<String, String> data) throws Exception {
+    public void failedLoginLogoutTest(Map<String, String> data) {
         new OrangeHRMAuthPage()
                 .sendUsername(data.get("username"))
                 .sendPassword(data.get("password"))

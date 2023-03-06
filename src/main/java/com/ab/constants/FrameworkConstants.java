@@ -40,14 +40,14 @@ public final class FrameworkConstants {
         return EXPLICIT_WAIT;
     }
 
-    public static String getExtentReportsFilePath() throws Exception {
+    public static String getExtentReportsFilePath() {
         if (extentReportsFilePath.isEmpty()) {
             extentReportsFilePath = createReportPath();
         }
         return extentReportsFilePath;
     }
 
-    private static String createReportPath() throws Exception {
+    private static String createReportPath() {
         if (PropertiesUtil.getPropertyValues(ConfigProperties.OVER_RIDE_REPORTS).equalsIgnoreCase("no")) {
             return EXTENT_REPORTS_FOLDER_PATH + DateUtil.humanTime() + "/index.html";
         } else {

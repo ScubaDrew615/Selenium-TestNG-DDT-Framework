@@ -23,7 +23,7 @@ public final class ExtentReportLogger {
         ExtentReportManager.getExtentTest().skip(message);
     }
 
-    public static void pass(String message, boolean needScreenShot) throws Exception {
+    public static void pass(String message, boolean needScreenShot) {
         if (PropertiesUtil.getPropertyValues(ConfigProperties.PASSED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
             ExtentReportManager.getExtentTest().pass(message,
@@ -33,7 +33,7 @@ public final class ExtentReportLogger {
         }
     }
 
-    public static void fail(String message, boolean needScreenShot) throws Exception {
+    public static void fail(String message, boolean needScreenShot) {
         if (PropertiesUtil.getPropertyValues(ConfigProperties.FAILED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
             ExtentReportManager.getExtentTest().fail(message,
@@ -43,7 +43,7 @@ public final class ExtentReportLogger {
         }
     }
 
-    public static void skip(String message, boolean needScreenShot) throws Exception {
+    public static void skip(String message, boolean needScreenShot) {
         if (PropertiesUtil.getPropertyValues(ConfigProperties.SKIPPED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
             ExtentReportManager.getExtentTest().skip(message,
@@ -52,7 +52,6 @@ public final class ExtentReportLogger {
             skip(message);
         }
     }
-
 
 
 }

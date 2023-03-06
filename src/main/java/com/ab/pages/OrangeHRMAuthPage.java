@@ -9,12 +9,12 @@ public class OrangeHRMAuthPage extends BasePage {
     private final By passwordTextbox = By.cssSelector("input[placeholder='Password']");
     private final By loginButton = By.cssSelector("button[type='submit']");
 
-    public OrangeHRMAuthPage sendUsername(String username) throws Exception {
+    public OrangeHRMAuthPage sendUsername(String username) {
         sendKeys(usernameTextbox, username, "Username");
         return this;
     }
 
-    public OrangeHRMAuthPage sendPassword(String password) throws Exception {
+    public OrangeHRMAuthPage sendPassword(String password) {
         sendKeys(passwordTextbox, password, "Password");
         return this;
     }

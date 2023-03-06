@@ -9,6 +9,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 public final class ExtentReport {
@@ -17,7 +18,7 @@ public final class ExtentReport {
 
     private static ExtentReports reports;
 
-    public static void initReports() throws Exception {
+    public static void initReports() {
         if (Objects.isNull(reports)) {
             reports = new ExtentReports();
             ExtentSparkReporter spark = new ExtentSparkReporter(FrameworkConstants.getExtentReportsFilePath());
@@ -28,12 +29,16 @@ public final class ExtentReport {
         }
     }
 
-    public static void closeReports() throws Exception {
+    public static void closeReports()  {
         if (Objects.nonNull(reports)) {
             reports.flush();
         }
         ExtentReportManager.unload();
-        Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportsFilePath()).toURI());
+        try {
+            Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportsFilePath()).toURI());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void createTest(String testCaseName) {

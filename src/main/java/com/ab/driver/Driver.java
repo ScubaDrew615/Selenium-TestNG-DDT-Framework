@@ -14,7 +14,7 @@ import java.util.Objects;
 public final class Driver {
     private Driver() {}
 
-    public static void initDriver(String browserName) throws Exception {
+    public static void initDriver(String browserName) {
         if (Objects.isNull(DriverManager.getDriver())) {
             switch(browserName.toLowerCase()) {
                 case "chrome":

@@ -13,20 +13,12 @@ public class ListenersClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ISuite suite) {
-        try {
-            ExtentReport.initReports();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ExtentReport.initReports();
     }
 
     @Override
     public void onFinish(ISuite suite) {
-        try {
-            ExtentReport.closeReports();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ExtentReport.closeReports();
     }
 
     @Override
@@ -41,32 +33,20 @@ public class ListenersClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
-        try {
-            ExtentReportLogger.pass(StringsUtil.addSpacesAndCapitalize(methodName),true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ExtentReportLogger.pass(StringsUtil.addSpacesAndCapitalize(methodName), true);
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
-        try {
-            ExtentReportLogger.fail(StringsUtil.addSpacesAndCapitalize(methodName),true);
-            ExtentReportLogger.fail(result.getThrowable().getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ExtentReportLogger.fail(StringsUtil.addSpacesAndCapitalize(methodName), true);
+        ExtentReportLogger.fail(result.getThrowable().getMessage());
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
-        try {
-            ExtentReportLogger.skip(StringsUtil.addSpacesAndCapitalize(methodName), true);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        ExtentReportLogger.skip(StringsUtil.addSpacesAndCapitalize(methodName), true);
     }
 
 }
