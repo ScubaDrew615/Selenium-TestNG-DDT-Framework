@@ -1,5 +1,6 @@
 package com.ab.listeners;
 
+import com.ab.annotations.FrameworkAnnotation;
 import com.ab.reports.ExtentReportLogger;
 import com.ab.reports.ExtentReport;
 import com.ab.utilities.StringsUtil;
@@ -30,8 +31,11 @@ public class ListenersClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        String methodName = result.getMethod().getMethodName();
         ExtentReport.createTest(result.getMethod().getDescription());
+        ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod()
+                .getAnnotation(FrameworkAnnotation.class).author());
+        ExtentReport.addSuites(result.getMethod().getConstructorOrMethod().getMethod()
+                .getAnnotation(FrameworkAnnotation.class).suites());
     }
 
     @Override
