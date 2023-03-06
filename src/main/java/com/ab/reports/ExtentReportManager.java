@@ -7,7 +7,7 @@ public class ExtentReportManager {
     private ExtentReportManager() {
     }
 
-    private static ThreadLocal<ExtentTest> extentTestTL = new ThreadLocal<>();
+    private static final ThreadLocal<ExtentTest> extentTestTL = new ThreadLocal<>();
 
     static ExtentTest getExtentTest() {
         return extentTestTL.get();
