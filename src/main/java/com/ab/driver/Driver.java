@@ -40,7 +40,7 @@ public final class Driver {
                 default:
                     throw new IllegalArgumentException("Invalid browser name: " + browserName);
             }
-            DriverManager.getDriver().get(PropertiesUtil.getValues(ConfigProperties.URL));
+            DriverManager.getDriver().get(PropertiesUtil.getPropertieValues(ConfigProperties.URL));
         }
     }
 

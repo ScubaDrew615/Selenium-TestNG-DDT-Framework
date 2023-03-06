@@ -29,7 +29,7 @@ public final class PropertiesUtil {
         }
     }
 
-    public static String getValues(ConfigProperties key) throws Exception {
+    public static String getPropertieValues(ConfigProperties key) throws Exception {
         if (Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key))) {
             if (Objects.nonNull(key)) {
                 throw new Exception("Property name '" + key.name() + "' is not found. Please check FrameworkConfigs.properties.");
