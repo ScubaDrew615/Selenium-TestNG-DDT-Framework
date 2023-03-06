@@ -11,6 +11,6 @@ public class DateUtil {
         return simpleDateFormat.format(new Date(unixTime));
     }
     public static String humanTime() {
-        return convertUnixTime(System.currentTimeMillis(), DateFormats.LONG12H);
+        return convertUnixTime(System.currentTimeMillis(), DateFormats.LONG24H);
     }
 }
