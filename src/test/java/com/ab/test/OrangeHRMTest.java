@@ -1,5 +1,7 @@
 package com.ab.test;
 
+import com.ab.annotations.FrameworkAnnotation;
+import com.ab.enums.SuiteType;
 import com.ab.pages.OrangeHRMAuthPage;
 import org.testng.annotations.Test;
 
@@ -7,6 +9,7 @@ import java.util.Map;
 
 public class OrangeHRMTest extends BaseTest {
 
+    @FrameworkAnnotation(author = {"Andrew", "Stephen"}, suites = {SuiteType.REGRESSION, SuiteType.MINI_REGRESSION})
     @Test
     public void loginLogoutTest(Map<String, String> data) throws Exception {
         new OrangeHRMAuthPage()
@@ -18,6 +21,7 @@ public class OrangeHRMTest extends BaseTest {
                 .getTitle();
     }
 
+    @FrameworkAnnotation(author = {"Andrew", "Stephen"}, suites = {SuiteType.REGRESSION, SuiteType.SMOKE})
     @Test
     public void failedLoginLogoutTest(Map<String, String> data) throws Exception {
         new OrangeHRMAuthPage()

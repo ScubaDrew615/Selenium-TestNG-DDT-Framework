@@ -1,6 +1,8 @@
 package com.ab.reports;
 
 import com.ab.constants.FrameworkConstants;
+import com.ab.enums.SuiteType;
+import com.ab.utilities.StringsUtil;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
@@ -38,5 +40,16 @@ public final class ExtentReport {
         ExtentReportManager.setExtentTest(reports.createTest(testCaseName));
     }
 
+    public static void addAuthors(String[] authors) {
+        for (String temp : authors) {
+            ExtentReportManager.getExtentTest().assignAuthor(temp);
+        }
+    }
+
+    public static void addSuites(SuiteType[] suites) {
+        for (SuiteType suite : suites) {
+            ExtentReportManager.getExtentTest().assignCategory(StringsUtil.getCleanEnumName(suite));
+        }
+    }
 
 }
