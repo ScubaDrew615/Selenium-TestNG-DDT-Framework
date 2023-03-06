@@ -2,7 +2,6 @@ package com.ab.utilities;
 
 import com.ab.constants.FrameworkConstants;
 import com.ab.enums.ConfigProperties;
-import com.ab.exceptions.PropertyFileLoadException;
 import com.ab.exceptions.PropertyNotFoundException;
 
 import java.io.FileInputStream;
@@ -27,7 +26,8 @@ public final class PropertiesUtil {
             }
 
         } catch (IOException e) {
-            throw new PropertyFileLoadException("Error while loading properties file.");
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 

@@ -47,8 +47,7 @@ public final class ExcelUtils {
                 data.add(rowMap);
             }
         } catch (FileNotFoundException e) {
-
-            throw new ExcelFileNotFoundException("The Excel file you're trying to read is not found");
+            throw new ExcelFileNotFoundException("Please check the path of the Excel file in 'FrameworkConstants'");
         } catch (IOException e) {
             throw new ExcelReadException("An exception occurred while reading the Excel file");
         }
