@@ -1,6 +1,9 @@
 package com.ab.pages;
+/*
+                                            EXAMPLE LOGIN PAGE FORMAT
+ */
 
-import com.ab.reports.ExtentReportLogger;
+import com.ab.listeners.reports.ExtentReportLogger;
 import org.openqa.selenium.By;
 
 public class OrangeHRMAuthPage extends BasePage {
@@ -23,7 +26,8 @@ public class OrangeHRMAuthPage extends BasePage {
         click(loginButton, "Login button");
         return new OrangeHRMHomePage();
     }
-    public String getTitle(){
+
+    public String getTitle() {
         ExtentReportLogger.pass("Title received");
         return getPageTitle();
 

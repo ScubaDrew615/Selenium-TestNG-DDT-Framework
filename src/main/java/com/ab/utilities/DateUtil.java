@@ -5,28 +5,26 @@ import com.ab.enums.DateFormats;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 /**
- * A utility class that provides methods for working with dates.
- * <p>
- * This class contains a method for converting a Unix timestamp to a formatted date string in the specified format.
- * It also includes a method for getting the current date and time in a human-readable format.
- * </p><p>
+ * <p>The DateUtil class provides methods to manipulate dates and times.
+ * It contains a private method to convert Unix time to a specified date format and a public method to get the current time in a human-readable format.
+ * It uses the DateFormats enum to specify the date format.
+ * </p>
+ * Note: The convertUnixTime() method is private because it is only used internally by the class.
  *
  * @author Andrew Bakheet
  * @version 1.0
  * @project Selenium-Framework
- * @see DateFormats
- * @since 2022-07-13
  */
-
 public class DateUtil {
 
     /**
-     * Converts a Unix timestamp to a formatted date string in the specified format.
+     * This method converts Unix time to a specified date format.
      *
-     * @param unixTime the Unix timestamp to convert.
-     * @param format   the desired format of the date string.
-     * @return a formatted date string representing the specified Unix timestamp.
+     * @param unixTime The Unix time to be converted
+     * @param format The date format to which the Unix time is to be converted
+     * @return The Unix time converted to the specified date format
      */
     private static String convertUnixTime(long unixTime, DateFormats format) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format.getFormat());
@@ -34,9 +32,10 @@ public class DateUtil {
     }
 
     /**
-     * Gets the current date and time in a human-readable format.
+     * This method returns the current time in a human-readable format.
+     * It uses the convertUnixTime() method to convert the Unix time to the specified format.
      *
-     * @return a string representing the current date and time in a human-readable format.
+     * @return The current time in a human-readable format
      */
     public static String humanTime() {
         return convertUnixTime(System.currentTimeMillis(), DateFormats.LONG24H);

@@ -1,5 +1,7 @@
 package com.ab.test;
-
+/*
+                                            EXAMPLE TEST FORMAT
+ */
 import com.ab.annotations.FrameworkAnnotation;
 import com.ab.enums.SuiteType;
 import com.ab.pages.OrangeHRMAuthPage;

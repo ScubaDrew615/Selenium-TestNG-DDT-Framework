@@ -6,6 +6,14 @@ import org.testng.annotations.BeforeMethod;
 
 import java.util.Map;
 
+/**
+ * <p>The BaseTest class is the base class for all test classes in the framework.
+ * It contains a constructor, a setup method, and a teardown method.
+ * </p>
+ * @author
+ * @version 1.0
+ * @project
+ */
 public class BaseTest {
     protected BaseTest() {
     }

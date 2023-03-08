@@ -16,14 +16,12 @@ import java.util.Objects;
  * <p>The Driver class provides utility methods to initialize and quit a WebDriver instance.
  * It works in conjunction with the DriverManager class to manage the WebDriver instance in a
  * thread-safe manner.
- * <p>
- *
+ * </p>
  * @author Andrew Bakheet
  * @version 1.0
  * @project Selenium-Framework
  * @see DriverManager
  * @see com.ab.test.BaseTest
- * @since 2020-07-13
  */
 
 public final class Driver {

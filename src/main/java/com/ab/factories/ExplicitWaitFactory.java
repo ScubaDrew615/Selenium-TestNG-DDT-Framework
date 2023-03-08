@@ -10,11 +10,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+/**
+ * <p>The ExplicitWaitFactory class is used to create explicit waits for elements in a test automation framework.
+ * </p>
+ * @author Andrew Bakheet
+ * @version 1.0
+ * @project Selenium-Framework
+ */
 public final class ExplicitWaitFactory {
 
     private ExplicitWaitFactory() {
     }
 
+    /**
+     * Returns the element after an explicit wait.
+     *
+     * @param strategy the wait strategy to use
+     * @param locator  the locator of the element to wait for
+     * @return the element after an explicit wait
+     */
     public static WebElement explicitlyWait(WaitStrategy strategy, By locator) {
         WebElement element = null;
         if (strategy == WaitStrategy.CLICKABLE) {

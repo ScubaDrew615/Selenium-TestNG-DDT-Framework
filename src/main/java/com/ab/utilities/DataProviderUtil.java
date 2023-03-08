@@ -9,20 +9,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A utility class that provides a TestNG data provider for retrieving test data from an Excel file.
- *
+ * The DataProviderUtil class is a utility class that provides test data for TestNG tests using the @DataProvider annotation.
+ * It reads the test data from the specified Excel file and filters the data based on the "execute" column value.
  * <p>
- * This class contains a TestNG data provider method that reads test data from an Excel file and returns it as an
- * array of maps, where each map represents a single test case and contains the test case's data in the form of key-value
- * pairs.
- * </p><p>
+ * Note: This class uses ExcelUtil class to read the test data from the Excel file.
  *
  * @author Andrew Bakheet
  * @version 1.0
  * @project Selenium-Framework
- * @see ExcelUtil
- * @see FrameworkConstants
- * @since 2022-07-13
  */
 
 @SuppressWarnings("DataProviderReturnType")
@@ -30,16 +24,14 @@ public final class DataProviderUtil {
     private static List<Map<String, String>> dataList = new ArrayList<>();
 
     /**
-     * Provides test data for a TestNG test method from an Excel file.
-     *
+     * This method provides the test data for TestNG tests using the @DataProvider annotation.
+     * It reads the test data from the specified Excel file and filters the data based on the "execute" column value.
      * <p>
-     * This method reads test data from an Excel file and returns it as an array of maps, where each map represents a
-     * single test case and contains the test case's data in the form of key-value pairs.
-     * </p>
+     * Note: The name of the test method and the name of the sheet in the Excel file should be the same.
      *
-     * @param method the test method for which to retrieve test data.
-     * @return an array of maps, where each map represents a single test case and contains the test case's data in the
-     * form of key-value pairs.*/
+     * @param method The test method for which the data is to be provided
+     * @return An array of test data filtered based on the "execute" column value
+     */
     @DataProvider
     public static Object[] getData(Method method) {
         String testName = method.getName();
