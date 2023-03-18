@@ -5,6 +5,6 @@ com.ab.enums
 com.ab.exceptions
 com.ab.factories
 com.ab.listeners
-com.ab.listeners.reports
 com.ab.pages
+com.ab.reports
 com.ab.utilities

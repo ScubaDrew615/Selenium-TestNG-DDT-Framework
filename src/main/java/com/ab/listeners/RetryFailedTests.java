@@ -26,7 +26,7 @@ public class RetryFailedTests implements IRetryAnalyzer {
     @Override
     public boolean retry(ITestResult iTestResult) {
         boolean value = false;
-        if (PropertiesUtil.getPropertyValues(ConfigProperties.RETRY_FAILED_TESTS).equalsIgnoreCase("yes")) {
+        if (PropertiesUtil.getPropertyValue(ConfigProperties.RETRY_FAILED_TESTS).equalsIgnoreCase("yes")) {
             int retries = 1;
             value = count < retries;
             count++;
