@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - "4444:4444"
-  chrome:
+  chrome_94:
     image: selenium/node-chrome:3.141.59-20210929
     volumes:
       - /dev/shm:/dev/shm
@@ -26,8 +26,8 @@ services:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
     restart: on-failure
-  chrome_xx:
-    image: selenium/node-chrome:3.141.59-20200326
+  firefox_92:
+    image: selenium/node-firefox:3.141.59-20210929
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
@@ -36,8 +36,8 @@ services:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
     restart: on-failure
-  firefox:
-    image: selenium/node-firefox:3.141.59-20210929
+  firefox_72:
+    image: selenium/node-firefox:3.141.59-zinc
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
