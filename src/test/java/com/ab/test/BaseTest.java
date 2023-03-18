@@ -33,7 +33,7 @@ public class BaseTest {
     @BeforeMethod
     protected void setup(Object[] data) {
         Map<String, String> map = (Map<String, String>) data[0];
-        Driver.initDriver(map.get("browser"));
+        Driver.initDriver(map.get("browser"),map.get("version"));
     }
 
     /**

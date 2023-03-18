@@ -31,12 +31,13 @@ public final class Driver {
      * If a WebDriver instance does not exist, a new one is created and assigned to the DriverManager.
      *
      * @param browserName a String representing the name of the browser to create a WebDriver instance for
+     * @param version
      * @throws BrowserLaunchException if an error occurs while initializing the WebDriver instance
      */
-    public static void initDriver(String browserName) {
+    public static void initDriver(String browserName, String version) {
         if (Objects.isNull(DriverManager.getDriver())) {
             try {
-                DriverManager.setDriver(DriverFactory.getDriver(browserName));
+                DriverManager.setDriver(DriverFactory.getDriver(browserName, version));
             } catch (MalformedURLException e) {
                 throw new BrowserLaunchException("Please check the browser capabilities");
             }

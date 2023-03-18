@@ -42,11 +42,12 @@ public class DriverFactory {
      * Returns a WebDriver instance for the specified browser name and execution mode.
      *
      * @param browserName The name of the browser to create a WebDriver instance for.
+     * @param version
      * @return A WebDriver instance for the specified browser name and execution mode.
      * @throws MalformedURLException If the URL for the remote WebDriver server is malformed.
      * @throws FrameworkExceptions   If the run mode is not specified in the configuration file, or if the driver creation fails.
      */
-    public static WebDriver getDriver(String browserName) throws MalformedURLException {
+    public static WebDriver getDriver(String browserName, String version) throws MalformedURLException {
         String runMode = PropertiesUtil.getPropertyValue(ConfigProperties.RUN_MODE);
         WebDriver driver;
         if (Objects.isNull(runMode)) {
@@ -54,7 +55,7 @@ public class DriverFactory {
         }
 
         if (runMode.equalsIgnoreCase("remote")) {
-            driver = createRemoteDriver(browserName);
+            driver = createRemoteDriver(browserName, version);
         } else {
             driver = createLocalDriver(browserName);
         }
@@ -111,11 +112,12 @@ public class DriverFactory {
      * @return A WebDriver instance for the specified browser name and remote execution mode.
      * @throws MalformedURLException If the URL for the remote WebDriver server is malformed.
      */
-    private static WebDriver createRemoteDriver(String browserName) throws MalformedURLException {
+    private static WebDriver createRemoteDriver(String browserName, String version) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browserName);
+        capabilities.setVersion(version);
         URL url = new URL("http://127.0.0.1:4444/wd/hub");
-        return new RemoteWebDriver(url,capabilities);
+        return new RemoteWebDriver(url, capabilities);
     }
 
 }
