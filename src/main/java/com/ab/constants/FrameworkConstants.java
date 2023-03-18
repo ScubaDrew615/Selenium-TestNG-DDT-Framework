@@ -1,7 +1,7 @@
 package com.ab.constants;
 
 import com.ab.enums.ConfigProperties;
-import com.ab.listeners.reports.ExtentReport;
+import com.ab.reports.ExtentReport;
 import com.ab.utilities.DateUtil;
 import com.ab.utilities.PropertiesUtil;
 
@@ -52,7 +52,7 @@ public final class FrameworkConstants {
     /**
      * The path of the Extent reports file.
      */
-    private static final int EXPLICIT_WAIT = 1;
+    private static final int EXPLICIT_WAIT = 5;
     /**
      * The path of the Excel file containing test data.
      */
@@ -134,7 +134,7 @@ public final class FrameworkConstants {
      * </p>
      * @return the path of the Extent reports file.*/
     private static String createReportPath() {
-        if (PropertiesUtil.getPropertyValues(ConfigProperties.OVER_RIDE_REPORTS).equalsIgnoreCase("no")) {
+        if (PropertiesUtil.getPropertyValue(ConfigProperties.OVER_RIDE_REPORTS).equalsIgnoreCase("no")) {
             return EXTENT_REPORTS_FOLDER_PATH + DateUtil.humanTime() + "/index.html";
         } else {
             return EXTENT_REPORTS_FOLDER_PATH + "/index.html";

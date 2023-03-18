@@ -1,8 +1,8 @@
 package com.ab.listeners;
 
 import com.ab.annotations.FrameworkAnnotation;
-import com.ab.listeners.reports.ExtentReport;
-import com.ab.listeners.reports.ExtentReportLogger;
+import com.ab.reports.ExtentReport;
+import com.ab.reports.ExtentReportLogger;
 import com.ab.utilities.StringsUtil;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;

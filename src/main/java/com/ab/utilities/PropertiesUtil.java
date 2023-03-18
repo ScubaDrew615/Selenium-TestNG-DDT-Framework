@@ -52,7 +52,7 @@ public final class PropertiesUtil {
      * @return The value of the property with the specified key
      * @throws PropertyNotFoundException If the key or its corresponding value is null
      */
-    public static String getPropertyValues(ConfigProperties key) {
+    public static String getPropertyValue(ConfigProperties key) {
         if (Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key))) {
             if (Objects.nonNull(key)) {
                 throw new PropertyNotFoundException("Property name '" + key.name() + "' is not found. Please check FrameworkConfigs.properties.");
