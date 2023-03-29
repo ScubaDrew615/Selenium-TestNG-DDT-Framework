@@ -39,5 +39,7 @@ public enum ConfigProperties {
     /**
      * The RETRY_FAILED_TESTS property represents whether to retry failed tests.
      */
-    RETRY_FAILED_TESTS
+    RETRY_FAILED_TESTS,
+
+    RUN_MODE
 }

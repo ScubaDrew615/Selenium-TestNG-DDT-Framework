@@ -3,7 +3,7 @@ package com.ab.pages;
 import com.ab.driver.DriverManager;
 import com.ab.enums.WaitStrategy;
 import com.ab.factories.ExplicitWaitFactory;
-import com.ab.listeners.reports.ExtentReportLogger;
+import com.ab.reports.ExtentReportLogger;
 import org.openqa.selenium.By;
 
 /**

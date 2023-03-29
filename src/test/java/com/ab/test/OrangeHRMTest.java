@@ -11,7 +11,8 @@ import java.util.Map;
 
 public class OrangeHRMTest extends BaseTest {
 
-    @FrameworkAnnotation(author = {"Andrew", "Stephen"}, suites = {SuiteType.REGRESSION, SuiteType.MINI_REGRESSION})
+    @FrameworkAnnotation(author = {"Andrew", "Stephen"},
+            suites = {SuiteType.REGRESSION, SuiteType.MINI_REGRESSION})
     @Test
     public void loginLogoutTest(Map<String, String> data)  {
         new OrangeHRMAuthPage()
@@ -23,7 +24,8 @@ public class OrangeHRMTest extends BaseTest {
                 .getTitle();
     }
 
-    @FrameworkAnnotation(author = {"Andrew", "Stephen"}, suites = {SuiteType.REGRESSION, SuiteType.SMOKE})
+    @FrameworkAnnotation(author = {"Andrew", "Stephen"},
+            suites = {SuiteType.REGRESSION, SuiteType.SMOKE})
     @Test
     public void failedLoginLogoutTest(Map<String, String> data) {
         new OrangeHRMAuthPage()

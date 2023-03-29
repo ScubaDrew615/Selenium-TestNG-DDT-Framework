@@ -3,7 +3,7 @@ package com.ab.pages;
                                             EXAMPLE LOGIN PAGE FORMAT
  */
 
-import com.ab.listeners.reports.ExtentReportLogger;
+import com.ab.reports.ExtentReportLogger;
 import org.openqa.selenium.By;
 
 public class OrangeHRMAuthPage extends BasePage {

@@ -1,4 +1,4 @@
-package com.ab.listeners.reports;
+package com.ab.reports;
 
 import com.ab.constants.FrameworkConstants;
 import com.ab.enums.SuiteType;

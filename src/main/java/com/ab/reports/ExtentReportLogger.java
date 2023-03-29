@@ -1,4 +1,4 @@
-package com.ab.listeners.reports;
+package com.ab.reports;
 
 import com.ab.enums.ConfigProperties;
 import com.ab.utilities.PropertiesUtil;
@@ -63,7 +63,7 @@ public final class ExtentReportLogger {
      * @param needScreenShot a flag indicating whether a screenshot should be taken
      */
     public static void pass(String message, boolean needScreenShot) {
-        if (PropertiesUtil.getPropertyValues(ConfigProperties.PASSED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
+        if (PropertiesUtil.getPropertyValue(ConfigProperties.PASSED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
             ExtentReportManager.getExtentTest().pass(message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
@@ -81,7 +81,7 @@ public final class ExtentReportLogger {
      * @param needScreenShot a flag indicating whether a screenshot should be taken
      */
     public static void fail(String message, boolean needScreenShot) {
-        if (PropertiesUtil.getPropertyValues(ConfigProperties.FAILED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
+        if (PropertiesUtil.getPropertyValue(ConfigProperties.FAILED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
             ExtentReportManager.getExtentTest().fail(message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
@@ -99,7 +99,7 @@ public final class ExtentReportLogger {
      * @param needScreenShot a flag indicating whether a screenshot should be taken
      */
     public static void skip(String message, boolean needScreenShot) {
-        if (PropertiesUtil.getPropertyValues(ConfigProperties.SKIPPED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
+        if (PropertiesUtil.getPropertyValue(ConfigProperties.SKIPPED_STEPS_SCREENSHOTS).equalsIgnoreCase("yes")
                 && needScreenShot) {
             ExtentReportManager.getExtentTest().skip(message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());

@@ -1,4 +1,4 @@
-package com.ab.listeners.reports;
+package com.ab.reports;
 
 import com.aventstack.extentreports.ExtentTest;
 
