@@ -8,8 +8,8 @@ import org.openqa.selenium.By;
 
 public class OrangeHRMAuthPage extends BasePage {
 
-    private final By usernameTextbox = By.cssSelector("input[placeholder='Username']");
-    private final By passwordTextbox = By.cssSelector("input[placeholder='Password']");
+    private final By usernameTextbox = By.cssSelector("input[placeholder='Benutzername']");
+    private final By passwordTextbox = By.cssSelector("input[placeholder='Passwort']");
     private final By loginButton = By.cssSelector("button[type='submit']");
 
     public OrangeHRMAuthPage sendUsername(String username) {
