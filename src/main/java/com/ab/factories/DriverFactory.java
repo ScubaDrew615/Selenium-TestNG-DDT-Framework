@@ -116,7 +116,7 @@ public class DriverFactory {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(browserName);
         capabilities.setVersion(version);
-        URL url = new URL("http://127.0.0.1:4444/wd/hub");
+        URL url = new URL("http://192.168.4.157:4444/wd/hub");
         return new RemoteWebDriver(url, capabilities);
     }
 

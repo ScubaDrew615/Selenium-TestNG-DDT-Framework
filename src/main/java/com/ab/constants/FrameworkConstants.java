@@ -52,7 +52,7 @@ public final class FrameworkConstants {
     /**
      * The path of the Extent reports file.
      */
-    private static final int EXPLICIT_WAIT = 5;
+    private static final int EXPLICIT_WAIT = 10;
     /**
      * The path of the Excel file containing test data.
      */
